@@ -1,6 +1,6 @@
 const {MongoClient} = require('mongodb');
 
-const url = '';
+const url = 'enter db connection string';
 
 async function retrieveUsers() {
   const client = new MongoClient(url);
@@ -10,8 +10,8 @@ async function retrieveUsers() {
 
     console.log('Successfully Connected to MongoDB');
 
-    const database = client.db(''); // Selecting the particular database and collection
-    const collection = database.collection('users');
+    const database = client.db('enter database name'); // Selecting the particular database and collection
+    const collection = database.collection('enter collection name');
 
     const users = await collection.find({}).toArray(); // Fetching all the fields with values from the users collection
 

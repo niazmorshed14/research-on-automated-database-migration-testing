@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import logger from './logger.js'
 
-const url = '';
+const url = 'enter db connection string';
 async function dynamicChunks(chunkSize) {
   const client = new MongoClient(url); 
 
@@ -9,8 +9,8 @@ async function dynamicChunks(chunkSize) {
     await client.connect();
     console.log('Connected to MongoDB');
 
-    const database = client.db('');
-    const collection = database.collection('users');
+    const database = client.db('enter database name');
+    const collection = database.collection('enter collection name');
 
     let skipCount = 0;
     let hasMoreData = true;

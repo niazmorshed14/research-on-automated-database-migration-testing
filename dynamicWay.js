@@ -1,5 +1,5 @@
 const {MongoClient} = require('mongodb');
-const url = ''; 
+const url = 'enter db connection string'; 
 
 async function dynamicRetrieve() {
   const client = new MongoClient(url);
@@ -8,8 +8,8 @@ async function dynamicRetrieve() {
     await client.connect();
     console.log('Connected to MongoDB');
 
-    const database = client.db('');
-    const collection = database.collection('users');
+    const database = client.db('enter database name');
+    const collection = database.collection('enter collection name');
 
     const users = await collection.find({}).toArray();
 

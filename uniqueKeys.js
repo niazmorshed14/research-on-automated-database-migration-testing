@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 import logger from './logger.js'
 
-const url = '';
+const url = 'enter db connection string';
 
 async function findUniqueKeys() {
   const client = new MongoClient(url);
@@ -11,8 +11,8 @@ async function findUniqueKeys() {
     console.log('Connected to MongoDB');
     logger.info("Connection Successfully Made")
 
-    const database = client.db('');
-    const collection = database.collection('');
+    const database = client.db('enter database name');
+    const collection = database.collection('enter collection name');
     logger.info("")
 
     const uniqueKeys = new Set();

@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const url = '';
+const url = 'enter db connection string';
 
 async function retrieveInChunk(chunkSize, chunkNumber) {
   const client = new MongoClient(url);
@@ -10,8 +10,8 @@ async function retrieveInChunk(chunkSize, chunkNumber) {
 
     console.log('Connected to MongoDB');
 
-    const database = client.db(''); 
-    const collection = database.collection('users'); 
+    const database = client.db('enter database name'); 
+    const collection = database.collection('enter collection name'); 
 
     const skipCount = (chunkNumber - 1) * chunkSize;
 

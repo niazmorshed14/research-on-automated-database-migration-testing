@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import logger from './logger.js'
 
 const url = '';
 async function dynamicChunks(chunkSize) {
@@ -8,7 +9,7 @@ async function dynamicChunks(chunkSize) {
     await client.connect();
     console.log('Connected to MongoDB');
 
-    const database = client.db('userdb');
+    const database = client.db('');
     const collection = database.collection('users');
 
     let skipCount = 0;
@@ -26,6 +27,7 @@ async function dynamicChunks(chunkSize) {
         console.log(`User Number ${skipCount + index + 1}:`);
         Object.entries(user).forEach(([key, value]) => {
           console.log(`${key}: ${value}`);
+          
         });
         console.log();
         console.log();
@@ -36,6 +38,9 @@ async function dynamicChunks(chunkSize) {
       if (users.length < chunkSize) {
         hasMoreData = false;
         console.log('All users have been retrieved.');
+        logger.info('All the users are retrieved');
+        logger.warn('No data left!')
+        logger.info('Data are retrieved in chunk')
       }
     }
   } catch (error) {

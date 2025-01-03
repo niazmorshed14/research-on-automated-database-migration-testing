@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import logger from './logger.js'
 
 const url = '';
 
@@ -8,9 +9,11 @@ async function findUniqueKeys() {
   try {
     await client.connect();
     console.log('Connected to MongoDB');
+    logger.info("Connection Successfully Made")
 
     const database = client.db('');
     const collection = database.collection('');
+    logger.info("")
 
     const uniqueKeys = new Set();
     const users = await collection.find({}).toArray();
@@ -26,10 +29,14 @@ async function findUniqueKeys() {
     console.log();
     console.log('The Unique Keys Are: ', uniqueKeysArray);
     console.log('The Number of Total Unique Keys:', uniqueKeysArray.length);
+    logger.warn("Warning! Unique Keys are revealed!");
+    
 
   } 
   catch (error) {
     console.error('Error connecting to MongoDB:', error);
+    
+    
   } 
   finally {
     await client.close();

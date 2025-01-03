@@ -10,7 +10,7 @@ async function retrieveInChunk(chunkSize, chunkNumber) {
 
     console.log('Connected to MongoDB');
 
-    const database = client.db('userdb'); 
+    const database = client.db(''); 
     const collection = database.collection('users'); 
 
     const skipCount = (chunkNumber - 1) * chunkSize;
